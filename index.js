@@ -36,6 +36,7 @@ client.once("ready", () => {
 });
 
 client.on('message', async msg => {
+    const args = msg.content.split("#");
     if (msg.channel.id != cfg.channelId) {
         return false
     }
