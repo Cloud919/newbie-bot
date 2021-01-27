@@ -1,11 +1,11 @@
 {
-    "token" : "",
-    "host" : "",
-    "user" : "",
+    "token" : "Token",
+    "host" : "localhost",
+    "user" : "root",
     "password" : "",
-    "database" : "",
-    "channelId" : "",
-    "botId" : "",
-    "roleId" : "",
-    "prefix" : ""
+    "database" : "vrpfx",
+    "channelId" : "이용할 채널 ID",
+    "botId" : "구동중인 봇의 ID",
+    "roleId" : "지급할 역할 ID",
+    "prefix" : "뉴비인증"
 }
