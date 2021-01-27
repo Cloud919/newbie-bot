@@ -3,5 +3,7 @@
     "host" : "",
     "user" : "",
     "password" : "",
-    "database" : ""
+    "database" : "",
+    "channelId" : "",
+    "botId" : ""
 }
