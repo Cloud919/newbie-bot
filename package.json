@@ -1,14 +1,14 @@
 {
   "dependencies": {
-    "discord.js": "^12.5.1"
+    "discord.js": "^12.5.1",
+    "mysql2": "^2.2.5"
   },
   "name": "newbie-bot",
   "description": "FiveM newbie-bot",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
-    "test": "node ./index.js"
+    "start": "node ./index.js"
   },
   "repository": {
     "type": "git",
