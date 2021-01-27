@@ -1,5 +1,27 @@
 {
   "dependencies": {
     "discord.js": "^12.5.1"
-  }
+  },
+  "name": "newbie-bot",
+  "description": "FiveM newbie-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cloud919/newbie-bot.git"
+  },
+  "keywords": [
+    "fivem",
+    "vrp"
+  ],
+  "author": "seyoung",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cloud919/newbie-bot/issues"
+  },
+  "homepage": "https://github.com/Cloud919/newbie-bot#readme"
 }
