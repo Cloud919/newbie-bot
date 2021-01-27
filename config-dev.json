@@ -6,5 +6,6 @@
     "database" : "",
     "channelId" : "",
     "botId" : "",
+    "roleId" : "",
     "prefix" : ""
 }

@@ -36,10 +36,12 @@ client.once("ready", () => {
 });
 
 client.on('message', async msg => {
-    const args = msg.content.split("#");
-    const code = args[1];
+    let args = msg.content.split("#");
+    let code = args[1];
     const result = await db('SELECT * FROM vrp_newbie_bonus WHERE code = ?', [code]);
-    const results = result[0];
+    let results = result[0];
+    let mb_id = msg.author.id;
+	let mbr = msg.guild.members.cache.get(mb_id);
 
     if (msg.channel.id != cfg.channelId) {
         return false
@@ -55,8 +57,20 @@ client.on('message', async msg => {
         msg.reply("올바른 코드가 아닙니다. 입력 예시와 같이 입력 바랍니다. (입력예시 : 뉴비인증#123456)");
         return false
     }
-    console.log(results.state);
-})
+    if (!result || !results) {
+        msg.reply('올바른 코드가 아닙니다. 게임 내에서 코드가 정상적으로 발급되었는지 확인바랍니다.');
+        return false
+    }
+    if (results.state != 0) {
+        msg.reply('이미 인증이 완료되었습니다.');
+        return false
+    }
+    if (results.state == 0) {
+        db('UPDATE vrp_newbie_bonus SET state = 1 WHERE code = ?', [code]);
+        mbr.roles.add(cfg.roleId).catch(console.error);
+        msg.reply('인증 및 권한 지급이 완료되었습니다. 게임 내에서 지원을 받으세요.');
+    }
+});
 
 
 client.login(cfg.token);
