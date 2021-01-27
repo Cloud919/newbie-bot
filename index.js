@@ -37,15 +37,25 @@ client.once("ready", () => {
 
 client.on('message', async msg => {
     const args = msg.content.split("#");
+    const code = args[1];
+    const result = await db('SELECT * FROM vrp_newbie_bonus WHERE code = ?', [code]);
+    const results = result[0];
+
     if (msg.channel.id != cfg.channelId) {
-        return false
-    }
-    if (!msg.content.startsWith(cfg.prefix)){
         return false
     }
     if (msg.author.id == cfg.botId){
         return false
     }
+    if (!msg.content.startsWith(cfg.prefix)){
+        msg.reply("올바른 명령어가 아닙니다. 입력 예시와 같이 입력 바랍니다. (입력예시 : 뉴비인증#123456)")
+        return false
+    }
+    if (!code || code.length < 4){
+        msg.reply("올바른 코드가 아닙니다. 입력 예시와 같이 입력 바랍니다. (입력예시 : 뉴비인증#123456)");
+        return false
+    }
+    console.log(results.state);
 })
 
 
