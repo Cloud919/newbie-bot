@@ -35,5 +35,17 @@ client.once("ready", () => {
     });
 });
 
+client.on('message', async msg => {
+    if (msg.channel.id != cfg.channelId) {
+        return false
+    }
+    if (!msg.content.startsWith(cfg.prefix)){
+        return false
+    }
+    if (msg.author.id == cfg.botId){
+        return false
+    }
+})
+
 
 client.login(cfg.token);
